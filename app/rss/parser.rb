@@ -6,15 +6,13 @@ module NewsletterRss
     class Parser
       include Deps["rss.client"]
 
-      def call(url: "https://newsletter.shortruby.com/feed")
+      def call(url:)
         response = client.call(url:)
         return if response.failure?
 
-        feed = RSS::Parser.parse(response.value!.body)
-
-        feed.items.each do |item|
-          logger.info("Item: #{item.title}, link: #{item.link}")
-        end
+        response = RSS::Parser.parse(response.value!.body)
+        logger.info(response.inspect)
+        response
       end
 
       private

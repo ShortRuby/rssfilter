@@ -7,11 +7,9 @@ module NewsletterRss
         include Deps["rss.transform"]
 
         def handle(request, response)
-          items = transform.call
-          items.each do |item|
-            logger.info("Item #{item.title} with #{item.link}")
-          end
-          response.body = "Welcome to Short Ruby RSS!"
+          rss = transform.call(url: "https://newsletter.shortruby.com/feed")
+          response.format :xml
+          response.body = rss
         end
 
         private

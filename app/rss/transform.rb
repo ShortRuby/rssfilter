@@ -3,11 +3,12 @@
 module NewsletterRss
   module Rss
     class Transform
-      include Deps["rss.parser", "rss.filter"]
+      include Deps["rss.parser", "rss.filter", "rss.maker"]
 
-      def call
-        items = parser.call
-        filter.call(items)
+      def call(url:)
+        feed = parser.call(url:)
+        filtered_feed = filter.call(feed.items)
+        maker.call(feed: filtered_feed)
       end
     end
   end
