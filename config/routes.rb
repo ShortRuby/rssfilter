@@ -2,6 +2,6 @@
 
 module NewsletterRss
   class Routes < Hanami::Routes
-    root { "Hello from Hanami" }
+    root to: "rss.index"
   end
 end
