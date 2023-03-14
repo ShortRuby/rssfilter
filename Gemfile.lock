@@ -26,6 +26,10 @@ GEM
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.0, < 2)
       zeitwerk (~> 2.6)
+    dry-monads (1.6.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.0, < 2)
+      zeitwerk (~> 2.6)
     dry-monitor (1.0.1)
       dry-configurable (~> 1.0, < 2)
       dry-core (~> 1.0, < 2)
@@ -57,6 +61,8 @@ GEM
       dry-initializer (~> 3.0)
       dry-schema (>= 1.12, < 2)
       zeitwerk (~> 2.6)
+    ethon (0.16.0)
+      ffi (>= 1.15.0)
     ffi (1.15.5)
     formatador (1.1.0)
     guard (2.18.0)
@@ -144,6 +150,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rexml (3.2.5)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -157,9 +164,13 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.0)
+    rss (0.2.9)
+      rexml
     ruby2_keywords (0.0.5)
     shellany (0.0.1)
     thor (1.2.1)
+    typhoeus (1.4.0)
+      ethon (>= 0.9.0)
     zeitwerk (2.6.7)
 
 PLATFORMS
@@ -167,6 +178,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
+  dry-monads
   dry-types (~> 1.0, >= 1.6.1)
   guard-puma (~> 0.8)
   hanami (~> 2.0)
@@ -178,6 +190,8 @@ DEPENDENCIES
   puma
   rack-test
   rake
+  rss
+  typhoeus
 
 BUNDLED WITH
    2.4.8
