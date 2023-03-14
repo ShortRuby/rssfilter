@@ -6,6 +6,6 @@ RSpec.describe "Root", type: :request do
 
     # Find me in `config/routes.rb`
     expect(last_response).to be_successful
-    expect(last_response.body).to eq("Hello from Hanami")
+    expect(last_response.body).to eq("Welcome to Short Ruby RSS!")
   end
 end
