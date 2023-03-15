@@ -11,7 +11,6 @@ module NewsletterRss
         return if response.failure?
 
         response = RSS::Parser.parse(response.value!.body)
-        logger.info(response.inspect)
         response
       end
 

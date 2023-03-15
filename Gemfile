@@ -16,6 +16,7 @@ gem "dry-monads"
 
 group :development, :test do
   gem "dotenv"
+  gem "debug"
 end
 
 group :cli, :development do
@@ -31,5 +32,7 @@ group :development do
 end
 
 group :test do
+  gem "nokogiri"
   gem "rack-test"
+  gem "webmock"
 end

@@ -7,8 +7,8 @@ module NewsletterRss
         include Deps["rss.transform"]
 
         def handle(request, response)
-          rss = transform.call(url: "https://newsletter.shortruby.com/feed")
-          response.format :xml
+          rss = transform.call(url: ENV.fetch("FEED_URL"))
+          response.format = :xml
           response.body = rss
         end
 

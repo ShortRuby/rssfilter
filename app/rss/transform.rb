@@ -7,8 +7,8 @@ module NewsletterRss
 
       def call(url:)
         feed = parser.call(url:)
-        filtered_feed = filter.call(feed.items)
-        maker.call(feed: filtered_feed)
+        items = filter.call(feed.items)
+        maker.call(channel: feed.channel, items: items)
       end
     end
   end
