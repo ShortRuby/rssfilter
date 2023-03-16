@@ -38,4 +38,3 @@ module NewsletterRss
     end
   end
 end
-

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require 'nokogiri'
+
+require "nokogiri"
 
 RSpec.describe "Root", type: :request do
   it "it responds with RSS feed" do

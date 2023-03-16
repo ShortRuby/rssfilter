@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-require 'dry/monads'
-require 'typhoeus'
+
+require "dry/monads"
+require "typhoeus"
 
 module NewsletterRss
   module Rss
@@ -33,7 +34,7 @@ module NewsletterRss
         end
 
         FeedResponse.new(code: response.code, body: response.body, headers: response.headers)
-      rescue StandardError => e
+      rescue => e
         logger.error(e)
       end
 
