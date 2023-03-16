@@ -10,7 +10,7 @@ module NewsletterRss
           maker.channel.link = channel.link
 
           copy_attributes(
-            %i(title language description copyright webMaster lastBuildDate itunes_author),
+            %i[title language description copyright webMaster lastBuildDate itunes_author],
             source: channel,
             destination: maker.channel
           )

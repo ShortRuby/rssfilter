@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require 'rss'
+
+require "rss"
 
 module NewsletterRss
   module Rss
@@ -10,8 +11,7 @@ module NewsletterRss
         response = client.call(url:)
         return if response.failure?
 
-        response = RSS::Parser.parse(response.value!.body)
-        response
+        RSS::Parser.parse(response.value!.body)
       end
 
       private

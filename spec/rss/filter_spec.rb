@@ -32,11 +32,10 @@ RSpec.describe NewsletterRss::Rss::Filter do
     let(:item2) { new_item(title: "Short Ruby News - Edition #23 PAID", link: "https://newsletter.shortruby.com/p/edition-33-23") }
     let(:item3) { new_item(title: "Short Ruby News - Edition #23 Paid", link: "https://newsletter.shortruby.com/p/edition-33-22") }
     let(:item4) { new_item(title: "Short Ruby News - paid Edition #23", link: "https://newsletter.shortruby.com/p/edition-33-21") }
-    let(:items) { [item1, item2, item3, item4]}
+    let(:items) { [item1, item2, item3, item4] }
 
     it "keeps only the items without those words" do
       expect(subject.call(items)).to_not include(item2)
     end
   end
-
 end
