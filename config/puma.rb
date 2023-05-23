@@ -8,6 +8,8 @@ port ENV.fetch("HANAMI_PORT", 2300)
 environment ENV.fetch("HANAMI_ENV", "development")
 workers ENV.fetch("HANAMI_WEB_CONCURRENCY", 2)
 
+pidfile ENV.fetch("PIDFILE") { "tmp/pids/puma.pid" }
+
 on_worker_boot do
   Hanami.shutdown
 end
