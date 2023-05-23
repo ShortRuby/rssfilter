@@ -3,22 +3,18 @@
 module NewsletterRss
   module Rss
     class Filter
-      PAID_KEYS = [
-        -"paid",
-        -"Paid",
-        -"PAID"
+      KEEP_KEYS = [
+        "p/edition"
       ].freeze
 
       def call(items)
         keep = {}
 
         items.each do |item|
-          unless include?(item, keep:)
-            logger.info("Removed #{item.title}/#{item.link}")
-            next
+          if include?(item, keep:)
+            logger.info("Included #{item.title}/#{item.link}")
+            keep[item.link] = item
           end
-
-          keep[item.title] = item
         end
 
         keep.values
@@ -27,11 +23,10 @@ module NewsletterRss
       private
 
       def include?(item, keep:)
-        return false if keep.include?(item.title)
-        return false if PAID_KEYS.any? { item.title.include?(_1) }
-        return false if item.link.include?(-"paid")
+        return false if keep.include?(item.link)
+        return true if KEEP_KEYS.any? { item.link.include?(_1) }
 
-        true
+        false
       end
 
       def logger = NewsletterRss::App["logger"]
