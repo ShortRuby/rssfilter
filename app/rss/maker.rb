@@ -5,14 +5,14 @@ module NewsletterRss
     class Maker
       AUTHOR = -"Lucian Ghinda"
       def call(channel:, items:)
-        logger.info("Started Maker at #{Time.now}}")
         RSS::Maker.make("2.0") do |maker|
           maker.channel.author = cdata_wrap(AUTHOR)
           maker.channel.updated = cdata_wrap(Time.now.to_s)
           maker.channel.link = cdata_wrap(channel.link)
-          maker.channel.webMaster = cdata_wrap(channel.webMaster)
+          maker.channel.webMaster = cdata_wrap(web_master(channel))
+
           copy_attributes(
-            %i(title language description copyright webMaster lastBuildDate itunes_author),
+            %i(title language description copyright lastBuildDate itunes_author),
             source: channel,
             destination: maker.channel
           )
