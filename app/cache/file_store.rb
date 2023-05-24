@@ -1,9 +1,11 @@
-require 'pstore'
+# frozen_string_literal: true
+
+require "pstore"
 
 module NewsletterRss
   module Cache
     class FileStore
-      STORE_FILE = './tmp/cache.pstore'
+      STORE_FILE = "./tmp/cache.pstore"
 
       def initialize(store_file = STORE_FILE, expiration = 7200)
         @store = PStore.new(store_file, true)
@@ -28,7 +30,7 @@ module NewsletterRss
         key = cache_key(request)
         timestamp = Time.now
         store.transaction do
-          store[key] = {response:, timestamp:}
+          store[key] = { response:, timestamp: }
         end
       end
 

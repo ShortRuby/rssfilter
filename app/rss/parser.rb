@@ -24,7 +24,7 @@ module NewsletterRss
 
       private
 
-      def logger = NewsletterRss::App["logger"]
+        def logger = NewsletterRss::App["logger"]
     end
   end
 end

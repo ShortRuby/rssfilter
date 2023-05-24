@@ -1,10 +1,11 @@
 # frozen_string_literal: true
-require 'pstore'
+
+require "pstore"
 
 module NewsletterRss
   module Rss
     class Cache
-      STORE_FILE = './tmp/rss_cache.pstore'
+      STORE_FILE = "./tmp/rss_cache.pstore"
 
       def initialize(store_file = STORE_FILE, expiration = 7200)
         @store = PStore.new(store_file)
@@ -33,11 +34,11 @@ module NewsletterRss
 
       private
 
-      attr_reader :store, :expiration
+        attr_reader :store, :expiration
 
-      def expired?(timestamp)
-        Time.now - timestamp > expiration
-      end
+        def expired?(timestamp)
+          Time.now - timestamp > expiration
+        end
     end
   end
 end
