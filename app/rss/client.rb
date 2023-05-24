@@ -7,12 +7,14 @@ module NewsletterRss
   module Rss
     class Client
       include Dry::Monads[:result]
+      include Deps["cache.file_store"]
 
       # @param [<String>] url
       #
       # @return [<NewsletterRss::Rss::Response>]
       #
       def call(url:)
+        Typhoeus::Config.cache = file_store
         request = ::Typhoeus::Request.new(url.to_s, method: :get)
         response = run_request(request)
 

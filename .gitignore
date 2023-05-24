@@ -2,3 +2,7 @@
 log/*
 
 TAGS
+
+.envrc
+
+tmp/*
