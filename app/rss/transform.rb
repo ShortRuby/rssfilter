@@ -10,6 +10,10 @@ module NewsletterRss
         items = filter.call(feed.items)
         maker.call(channel: feed.channel, items: items)
       end
+
+      private
+
+        def logger = NewsletterRss::App["logger"]
     end
   end
 end

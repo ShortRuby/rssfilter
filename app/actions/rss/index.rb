@@ -8,13 +8,14 @@ module NewsletterRss
 
         def handle(request, response)
           rss = transform.call(url: ENV.fetch("FEED_URL"))
+          logger.debug("Finished #{Time.now}")
           response.format = :xml
           response.body = rss
         end
 
         private
 
-        def logger = NewsletterRss::App["logger"]
+          def logger = NewsletterRss::App["logger"]
       end
     end
   end

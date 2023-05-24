@@ -10,7 +10,7 @@ workers ENV.fetch("HANAMI_WEB_CONCURRENCY", 2)
 
 pidfile ENV.fetch("PIDFILE", "tmp/pids/puma.pid")
 
-app_dir = File.expand_path("../..", __FILE__)
+app_dir = File.expand_path("..", __dir__)
 bind "unix://#{app_dir}/tmp/puma.sock"
 
 on_worker_boot do

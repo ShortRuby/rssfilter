@@ -4,6 +4,6 @@ module FakeFeedResponse
   module_function
 
   def feed
-    File.read(File.dirname(__FILE__) + "/feed.xml")
+    File.read("#{File.dirname(__FILE__)}/feed.xml")
   end
 end

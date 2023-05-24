@@ -22,14 +22,14 @@ module NewsletterRss
 
       private
 
-      def include?(item, keep:)
-        return false if keep.include?(item.link)
-        return true if KEEP_KEYS.any? { item.link.include?(_1) }
+        def include?(item, keep:)
+          return false if keep.include?(item.link)
+          return true if KEEP_KEYS.any? { item.link.include?(_1) }
 
-        false
-      end
+          false
+        end
 
-      def logger = NewsletterRss::App["logger"]
+        def logger = NewsletterRss::App["logger"]
     end
   end
 end
