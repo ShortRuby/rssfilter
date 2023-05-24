@@ -4,8 +4,9 @@ module NewsletterRss
   module Rss
     class Maker
       def call(channel:, items:)
-        RSS::Maker.make("2.0") do |maker|
-          maker.channel.author = "Lucian Ghinda"
+        logger.info("Started Maker at #{Time.now}}")
+        RSS::Maker.make('2.0') do |maker|
+          maker.channel.author = 'Lucian Ghinda'
           maker.channel.updated = Time.now.to_s
           maker.channel.link = channel.link
 
@@ -33,7 +34,7 @@ module NewsletterRss
         end
       end
 
-      def logger = NewsletterRss::App["logger"]
+      def logger = NewsletterRss::App['logger']
     end
   end
 end

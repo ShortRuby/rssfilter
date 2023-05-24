@@ -17,7 +17,7 @@ gem "dry-monads"
 group :development, :test do
   gem "dotenv"
   gem "debug"
-  gem "standard"
+  gem "rubocop"
 end
 
 group :cli, :development do
