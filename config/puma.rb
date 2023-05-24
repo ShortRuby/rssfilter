@@ -8,7 +8,7 @@ port ENV.fetch("HANAMI_PORT", 2300)
 environment ENV.fetch("HANAMI_ENV", "development")
 workers ENV.fetch("HANAMI_WEB_CONCURRENCY", 2)
 
-pidfile ENV.fetch("PIDFILE") { "tmp/pids/puma.pid" }
+pidfile ENV.fetch("PIDFILE", "tmp/pids/puma.pid")
 
 app_dir = File.expand_path("../..", __FILE__)
 bind "unix://#{app_dir}/tmp/puma.sock"
