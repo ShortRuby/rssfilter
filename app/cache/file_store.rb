@@ -5,7 +5,7 @@ require "pstore"
 module NewsletterRss
   module Cache
     class FileStore
-      STORE_FILE = "./tmp/cache.pstore"
+      STORE_FILE = "./tmp/cache/rss_client.pstore"
 
       def initialize(store_file = STORE_FILE, expiration = 7200)
         @store = PStore.new(store_file, true)
